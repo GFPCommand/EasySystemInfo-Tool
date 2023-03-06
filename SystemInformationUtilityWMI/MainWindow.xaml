@@ -1,0 +1,127 @@
+﻿<Window x:Class="SystemInformationUtilityWMI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemInformationUtilityWMI"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="EasySystemInfo" Height="550" Width="850">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="121*"></ColumnDefinition>
+            <ColumnDefinition Width="121*"></ColumnDefinition>
+            <ColumnDefinition Width="121*"></ColumnDefinition>
+            <ColumnDefinition Width="121*"></ColumnDefinition>
+            <ColumnDefinition Width="121*"></ColumnDefinition>
+            <ColumnDefinition Width="121*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="121*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="CPUinfo_Button" Margin="10 10 0 0" Grid.Column="0" Click="CPUinfoViewer">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Source="/Resources/MenuIcons/processor.png" Grid.Row="0"></Image>
+                <TextBlock FontSize="16" Grid.Row="1">CPU</TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="MBinfo_Button" Margin="121,10,121,0" Grid.ColumnSpan="3" Click="MotherboardInfoViewer">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Source="/Resources/MenuIcons/motherboard.png" Grid.Row="0"></Image>
+                <TextBlock FontSize="16" Grid.Row="1">Motherboard</TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="RAMinfo_Button" Margin="0,10,0,0" Grid.Column="2" Click="RAMinfoViewer">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Source="/Resources/MenuIcons/ram.png" Grid.Row="0"></Image>
+                <TextBlock FontSize="16" Grid.Row="1">RAM</TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="BIOSinfo_Button" Margin="121,10,121,0" Grid.Column="2" Grid.ColumnSpan="3" Click="BIOSinfoViewer">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Source="/Resources/MenuIcons/BIOS.png" Grid.Row="0"></Image>
+                <TextBlock FontSize="16" Grid.Row="1">BIOS</TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="GPUinfo_Button" Margin="0,10,0,0" Grid.Column="4" Click="GPUinfoViewer">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Source="/Resources/MenuIcons/graphic-card.png" Grid.Row="0"></Image>
+                <TextBlock FontSize="16" Grid.Row="1">GPU</TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="HardDrivesInfo_Button" Margin="121,10,0,0" Grid.Column="4" Grid.ColumnSpan="3" Click="HardDrivesInfoViewer">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Source="/Resources/MenuIcons/hdd.png" Grid.Row="0"></Image>
+                <TextBlock FontSize="16" Grid.Row="1">HDD/SSD</TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="OSinfo_Button" Margin="0 10 10 0" Grid.Column="6" Grid.ColumnSpan="2" Click="OSinfoViewer">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Source="/Resources/MenuIcons/operating-system.png" Grid.Row="0"></Image>
+                <TextBlock FontSize="16" Grid.Row="1" TextAlignment="Center">OS</TextBlock>
+            </Grid>
+        </Button>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="4" Margin="20,20,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="text1" Grid.Row="0"></TextBlock>
+            <TextBlock x:Name="text2" Grid.Row="1"></TextBlock>
+            <TextBlock x:Name="text3" Grid.Row="2"></TextBlock>
+            <TextBlock x:Name="text4" Grid.Row="3"></TextBlock>
+            <TextBlock x:Name="text5" Grid.Row="4"></TextBlock>
+            <TextBlock x:Name="text6" Grid.Row="5"></TextBlock>
+            <TextBlock x:Name="text7" Grid.Row="6"></TextBlock>
+        </Grid>
+
+        <Image x:Name="VendorImage" Stretch="Fill" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4" Margin="40,80,40,80" Width="256" Height="256"></Image>
+    </Grid>
+</Window>

@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Vendors\MSI\MSI.png" />
+    <None Remove="Resources\Vendors\RAM\Apacer.png" />
+    <None Remove="Resources\Vendors\RAM\Corsair.png" />
+    <None Remove="Resources\Vendors\RAM\Crucial.png" />
+    <None Remove="Resources\Vendors\RAM\GSKILL.png" />
+    <None Remove="Resources\Vendors\RAM\Kingston.png" />
+    <None Remove="Resources\Vendors\RAM\Kingston_FURY.png" />
+    <None Remove="Resources\Vendors\RAM\Patriot.png" />
+    <None Remove="Resources\Vendors\RAM\Samsung.png" />
+    <None Remove="Resources\Vendors\RAM\XPG.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\MenuIcons\BIOS.png" />
+    <Resource Include="Resources\MenuIcons\graphic-card.png" />
+    <Resource Include="Resources\MenuIcons\hdd.png" />
+    <Resource Include="Resources\MenuIcons\motherboard.png" />
+    <Resource Include="Resources\MenuIcons\operating-system.png" />
+    <Resource Include="Resources\MenuIcons\processor.png" />
+    <Resource Include="Resources\MenuIcons\ram.png" />
+    <Resource Include="Resources\SplashScreenImages\PC_SplashScreen.png" />
+    <Resource Include="Resources\Vendors\AMD\AMD_A-Series.png" />
+    <Resource Include="Resources\Vendors\AMD\AMD_Athlon.png" />
+    <Resource Include="Resources\Vendors\AMD\AMD_FX.png" />
+    <Resource Include="Resources\Vendors\AMD\AMD_Radeon.png" />
+    <Resource Include="Resources\Vendors\AMD\AMD_Radeon_Vega.png" />
+    <Resource Include="Resources\Vendors\AMD\AMD_Ryzen.png" />
+    <Resource Include="Resources\Vendors\AMD\AMD_Threadripper.png" />
+    <Resource Include="Resources\Vendors\AMD\ATI_Radeon.png" />
+    <Resource Include="Resources\Vendors\ASUS\ASUS.png" />
+    <Resource Include="Resources\Vendors\ASUS\ASUS_ROG.png" />
+    <Resource Include="Resources\Vendors\ASUS\ASUS_TUF.png" />
+    <Resource Include="Resources\Vendors\BIOS\AMI_logo.png" />
+    <Resource Include="Resources\Vendors\BIOS\Award_logo.png" />
+    <Resource Include="Resources\Vendors\BIOS\Phoenix_logo.png" />
+    <Resource Include="Resources\Vendors\Gigabyte\Gigabyte.png" />
+    <Resource Include="Resources\Vendors\Gigabyte\Gigabyte_AORUS.png" />
+    <Resource Include="Resources\Vendors\HardDrives\Seagate_logo.png" />
+    <Resource Include="Resources\Vendors\HardDrives\Toshiba_logo.png" />
+    <Resource Include="Resources\Vendors\HardDrives\WesternDigital_logo.png" />
+    <Resource Include="Resources\Vendors\Intel\Intel_Atom.png" />
+    <Resource Include="Resources\Vendors\Intel\Intel_Celeron.png" />
+    <Resource Include="Resources\Vendors\Intel\Intel_Core.png" />
+    <Resource Include="Resources\Vendors\Intel\Intel_Pentium.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\SplashScreenImages\PC_SplashScreen1.png" />
+    <Resource Include="Resources\Vendors\Microsoft\Windows_10.png" />
+    <Resource Include="Resources\Vendors\Microsoft\Windows_11.png" />
+    <Resource Include="Resources\Vendors\Microsoft\Windows_7.png" />
+    <Resource Include="Resources\Vendors\Microsoft\Windows_8.png" />
+    <Resource Include="Resources\Vendors\MSI\MSI.png" />
+    <Resource Include="Resources\Vendors\NVIDIA\Nvidia.png" />
+    <Resource Include="Resources\Vendors\NVIDIA\NVIDIA_GTX.png" />
+    <Resource Include="Resources\Vendors\NVIDIA\NVIDIA_RTX.png" />
+    <Resource Include="Resources\Vendors\RAM\Apacer.png" />
+    <Resource Include="Resources\Vendors\RAM\Corsair.png" />
+    <Resource Include="Resources\Vendors\RAM\Crucial.png" />
+    <Resource Include="Resources\Vendors\RAM\GSKILL.png" />
+    <Resource Include="Resources\Vendors\RAM\Kingston.png" />
+    <Resource Include="Resources\Vendors\RAM\Kingston_FURY.png" />
+    <Resource Include="Resources\Vendors\RAM\Patriot.png" />
+    <Resource Include="Resources\Vendors\RAM\Samsung.png" />
+    <Resource Include="Resources\Vendors\RAM\XPG.png" />
+  </ItemGroup>
+
+</Project>
