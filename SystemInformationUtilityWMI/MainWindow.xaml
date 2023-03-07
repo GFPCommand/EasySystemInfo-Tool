@@ -13,14 +13,13 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="121*"></ColumnDefinition>
-            <ColumnDefinition Width="121*"></ColumnDefinition>
-            <ColumnDefinition Width="121*"></ColumnDefinition>
-            <ColumnDefinition Width="121*"></ColumnDefinition>
-            <ColumnDefinition Width="121*"></ColumnDefinition>
-            <ColumnDefinition Width="121*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Button x:Name="CPUinfo_Button" Margin="10 10 0 0" Grid.Column="0" Click="CPUinfoViewer">
@@ -34,7 +33,7 @@
                 <TextBlock FontSize="16" Grid.Row="1">CPU</TextBlock>
             </Grid>
         </Button>
-        <Button x:Name="MBinfo_Button" Margin="121,10,121,0" Grid.ColumnSpan="3" Click="MotherboardInfoViewer">
+        <Button x:Name="MBinfo_Button" Margin="0 10 0 0" Grid.Column="1" Click="MotherboardInfoViewer">
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -45,7 +44,7 @@
                 <TextBlock FontSize="16" Grid.Row="1">Motherboard</TextBlock>
             </Grid>
         </Button>
-        <Button x:Name="RAMinfo_Button" Margin="0,10,0,0" Grid.Column="2" Click="RAMinfoViewer">
+        <Button x:Name="RAMinfo_Button" Margin="0 10 0 0" Grid.Column="2" Click="RAMinfoViewer">
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -56,7 +55,7 @@
                 <TextBlock FontSize="16" Grid.Row="1">RAM</TextBlock>
             </Grid>
         </Button>
-        <Button x:Name="BIOSinfo_Button" Margin="121,10,121,0" Grid.Column="2" Grid.ColumnSpan="3" Click="BIOSinfoViewer">
+        <Button x:Name="BIOSinfo_Button" Margin="0 10 0 0" Grid.Column="3" Click="BIOSinfoViewer">
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -67,7 +66,7 @@
                 <TextBlock FontSize="16" Grid.Row="1">BIOS</TextBlock>
             </Grid>
         </Button>
-        <Button x:Name="GPUinfo_Button" Margin="0,10,0,0" Grid.Column="4" Click="GPUinfoViewer">
+        <Button x:Name="GPUinfo_Button" Margin="0 10 0 0" Grid.Column="4" Click="GPUinfoViewer">
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -78,7 +77,7 @@
                 <TextBlock FontSize="16" Grid.Row="1">GPU</TextBlock>
             </Grid>
         </Button>
-        <Button x:Name="HardDrivesInfo_Button" Margin="121,10,0,0" Grid.Column="4" Grid.ColumnSpan="3" Click="HardDrivesInfoViewer">
+        <Button x:Name="HardDrivesInfo_Button" Margin="0 10 0 0" Grid.Column="5" Click="HardDrivesInfoViewer">
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -89,7 +88,7 @@
                 <TextBlock FontSize="16" Grid.Row="1">HDD/SSD</TextBlock>
             </Grid>
         </Button>
-        <Button x:Name="OSinfo_Button" Margin="0 10 10 0" Grid.Column="6" Grid.ColumnSpan="2" Click="OSinfoViewer">
+        <Button x:Name="OSinfo_Button" Margin="0 10 10 0" Grid.Column="6" Click="OSinfoViewer">
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
