@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:SystemInformationUtilityWMI"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="EasySystemInfo" Height="550" Width="850">
+        Title="EasySystemInfo" Height="550" Width="850"
+        Icon="/Resources/MenuIcons/settings.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition MaxHeight="80"></RowDefinition>
@@ -100,25 +101,27 @@
             </Grid>
         </Button>
 
-        <Grid Grid.Row="1" Grid.ColumnSpan="4" Margin="20,20,20,20">
+        <Grid Grid.Row="1" Grid.ColumnSpan="4" Margin="15">
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition/>
             </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <TextBlock x:Name="text1" Grid.Row="0"></TextBlock>
-            <TextBlock x:Name="text2" Grid.Row="1"></TextBlock>
-            <TextBlock x:Name="text3" Grid.Row="2"></TextBlock>
-            <TextBlock x:Name="text4" Grid.Row="3"></TextBlock>
-            <TextBlock x:Name="text5" Grid.Row="4"></TextBlock>
-            <TextBlock x:Name="text6" Grid.Row="5"></TextBlock>
-            <TextBlock x:Name="text7" Grid.Row="6"></TextBlock>
+                <!--<TextBlock Text="Property" FontSize="16" TextAlignment="Center" Grid.Row="0" Background="LightGray"/>
+                <TextBlock Text="Value" FontSize="16" TextAlignment="Center" Grid.Column="1" Grid.Row="0" Background="LightGray"/>-->
+
+                <ListBox Name="Properties" Grid.Row="1" Margin="5" Grid.ColumnSpan="2">
+                </ListBox>
+            </Grid>
         </Grid>
 
         <Image x:Name="VendorImage" Stretch="Fill" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4" Margin="40,80,40,80" Width="256" Height="256"></Image>

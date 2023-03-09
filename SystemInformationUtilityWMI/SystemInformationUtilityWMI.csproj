@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\MenuIcons\settings.png" />
     <None Remove="Resources\Vendors\MSI\MSI.png" />
     <None Remove="Resources\Vendors\RAM\Apacer.png" />
     <None Remove="Resources\Vendors\RAM\Corsair.png" />
@@ -32,6 +33,7 @@
     <Resource Include="Resources\MenuIcons\operating-system.png" />
     <Resource Include="Resources\MenuIcons\processor.png" />
     <Resource Include="Resources\MenuIcons\ram.png" />
+    <Resource Include="Resources\MenuIcons\settings.png" />
     <Resource Include="Resources\SplashScreenImages\PC_SplashScreen.png" />
     <Resource Include="Resources\Vendors\AMD\AMD_A-Series.png" />
     <Resource Include="Resources\Vendors\AMD\AMD_Athlon.png" />

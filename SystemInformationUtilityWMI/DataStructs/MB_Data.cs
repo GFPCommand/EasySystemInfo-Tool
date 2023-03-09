@@ -6,14 +6,14 @@ namespace SystemInformationUtilityWMI.DataStructs
     {
         public string DeviceID;
         public string Manufacturer;
-        public int MaxCapacity;
+        public long MaxCapacity;
         public int MemoryDevices;
         public string PrimaryBusType;
         public string Product;
         public string SecondaryBusType;
         public string Status;
 
-        private string _unknownText = "Unknown";
+        private const string _unknownText = "Unknown";
 
         public MB_Data(ManagementObjectSearcher searcherMotherboard, ManagementObjectSearcher searcherBaseBoard, ManagementObjectSearcher searcherMemory)
         {
@@ -33,7 +33,7 @@ namespace SystemInformationUtilityWMI.DataStructs
 
             foreach (var item in searcherMemory.Get())
             {
-                MaxCapacity = int.Parse(item["MaxCapacity"]?.ToString() ?? "0");
+                MaxCapacity = long.Parse(item["MaxCapacity"]?.ToString() ?? "0");
                 MemoryDevices = int.Parse(item["MemoryDevices"]?.ToString() ?? "0");
             }
         }

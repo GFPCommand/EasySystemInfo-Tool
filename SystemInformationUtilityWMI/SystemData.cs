@@ -10,6 +10,6 @@ namespace SystemInformationUtilityWMI
         public static GPU_Data gpu;
         public static BIOS_Data bios;
         public static OS_Data os;
-        public static HarDrives_Data hd;
+        public static HardDrives_Data hd;
     }
 }

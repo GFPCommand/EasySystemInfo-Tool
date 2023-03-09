@@ -54,7 +54,7 @@ namespace SystemInformationUtilityWMI
                                                 ddClass = new("Select * from Win32_DiskDrive"))
                 {
                     splashScreen.Dispatcher.Invoke(() => splashScreen.Progress = "Exploring in data archives...");
-                    SystemData.hd = new HarDrives_Data(hdClass, ddClass);
+                    SystemData.hd = new HardDrives_Data(hdClass, ddClass);
                 }
 
                 using (ManagementObjectSearcher osClass = new("Select * from Win32_OperatingSystem"))
@@ -86,16 +86,6 @@ namespace SystemInformationUtilityWMI
                     MessageBox.Show($"{property.Name} {item.Properties[property.Name.ToString()].Value?.ToString()}");
                 }
             }
-
-            //foreach (var item in manageClass.Get())
-            //{
-            //    short[] v = (short[])item["BiosCharacteristics"];
-
-            //    foreach (var s in v)
-            //    {
-            //        MessageBox.Show(s.ToString());
-            //    }
-            //}
         }
     }
 }

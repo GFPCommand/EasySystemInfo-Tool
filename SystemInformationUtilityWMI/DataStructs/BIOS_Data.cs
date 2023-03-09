@@ -1,4 +1,5 @@
-﻿using System.Management;
+﻿using System;
+using System.Management;
 
 namespace SystemInformationUtilityWMI.DataStructs
 {
@@ -7,11 +8,11 @@ namespace SystemInformationUtilityWMI.DataStructs
         public short[] BiosCharacteristics;
         public string Caption;
         public string Manufacturer;
-        public string ReleaseDate;
+        public DateTime ReleaseDate;
         public string Status;
         public string Version;
 
-        private string _unknownText = "Unknown";
+        private const string _unknownText = "Unknown";
 
         public BIOS_Data(ManagementObjectSearcher searcher)
         {
@@ -20,7 +21,8 @@ namespace SystemInformationUtilityWMI.DataStructs
                 BiosCharacteristics = (short[])item["BiosCharacteristics"];
                 Caption = item["Caption"]?.ToString() ?? _unknownText;
                 Manufacturer = item["Manufacturer"]?.ToString() ?? _unknownText;
-                ReleaseDate = item["ReleaseDate"]?.ToString() ?? _unknownText;
+                if (item["ReleaseDate"] is not null)
+                    ReleaseDate = DateTime.ParseExact(item["ReleaseDate"].ToString().Remove(14), "yyyyMMddHHmmss", System.Globalization.CultureInfo.InvariantCulture);
                 Status = item["Status"]?.ToString() ?? _unknownText;
                 Version = item["Version"]?.ToString() ?? _unknownText;
             }

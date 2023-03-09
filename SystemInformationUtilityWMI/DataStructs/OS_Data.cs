@@ -24,7 +24,7 @@ namespace SystemInformationUtilityWMI.DataStructs
         public string Version;
         public string WindowsDirectory;
 
-        private string _unknownText = "Unknown";
+        private const string _unknownText = "Unknown";
 
         public OS_Data(ManagementObjectSearcher searcher)
         {

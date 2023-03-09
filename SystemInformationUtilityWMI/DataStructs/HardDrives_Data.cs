@@ -3,7 +3,7 @@ using System.Management;
 
 namespace SystemInformationUtilityWMI.DataStructs
 {
-    struct HarDrives_Data
+    struct HardDrives_Data
     {
         public List<string> Caption = new();
         public List<string> Description = new();
@@ -16,9 +16,9 @@ namespace SystemInformationUtilityWMI.DataStructs
         public List<string> VolumeName = new();
         public List<string> VolumeSerialNumber = new();
 
-        private string _unknownText = "Unknown";
+        private const string _unknownText = "Unknown";
 
-        public HarDrives_Data(ManagementObjectSearcher hdSearcher, ManagementObjectSearcher ddSearcher)
+        public HardDrives_Data(ManagementObjectSearcher hdSearcher, ManagementObjectSearcher ddSearcher)
         {
             foreach (var item in hdSearcher.Get())
             {
@@ -31,7 +31,7 @@ namespace SystemInformationUtilityWMI.DataStructs
                 VolumeSerialNumber.Add(item["VolumeSerialNumber"]?.ToString() ?? _unknownText);
             }
 
-            foreach (var item in ddSearcher.Get())
+            foreach (var item in ddSearcher.Get()) // TODO: wrong comparison with another info before it
             {
                 Manufacturer.Add(item["Manufacturer"]?.ToString() ?? "Unknown");
                 Model.Add(item["Model"]?.ToString() ?? _unknownText);

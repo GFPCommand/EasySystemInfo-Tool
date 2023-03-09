@@ -1,4 +1,5 @@
-﻿using System.Management;
+﻿using System;
+using System.Management;
 
 namespace SystemInformationUtilityWMI.DataStructs
 {
@@ -13,7 +14,7 @@ namespace SystemInformationUtilityWMI.DataStructs
         public int CurrentRefreshRate;
         public int CurrentVerticalResolution;
         public string DeviceID;
-        public string DriverDate;
+        public DateTime DriverDate;
         public string DriverVersion;
         public int MinRefreshRate;
         public int MaxRefreshRate;
@@ -23,7 +24,7 @@ namespace SystemInformationUtilityWMI.DataStructs
         public int VideoMemoryType;
         public string VideoProcessor;
 
-        private string _unknownText = "Unknown";
+        private const string _unknownText = "Unknown";
 
         public GPU_Data(ManagementObjectSearcher searcher) 
         {
@@ -38,7 +39,8 @@ namespace SystemInformationUtilityWMI.DataStructs
                 CurrentRefreshRate = int.Parse(item["CurrentRefreshRate"]?.ToString() ?? "0");
                 CurrentVerticalResolution = int.Parse(item["CurrentVerticalResolution"]?.ToString() ?? "0");
                 DeviceID = item["DeviceID"]?.ToString() ?? _unknownText;
-                DriverDate = item["DriverDate"]?.ToString() ?? _unknownText;
+                if (item["DriverDate"] is not null)
+                    DriverDate = DateTime.ParseExact(item["DriverDate"].ToString().Remove(14), "yyyyMMddHHmmss", System.Globalization.CultureInfo.InvariantCulture);
                 DriverVersion = item["DriverVersion"]?.ToString() ?? _unknownText;
                 MinRefreshRate = int.Parse(item["MinRefreshRate"]?.ToString() ?? "0");
                 MaxRefreshRate = int.Parse(item["MaxRefreshRate"]?.ToString() ?? "0");

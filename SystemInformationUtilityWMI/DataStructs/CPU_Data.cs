@@ -19,13 +19,12 @@ namespace SystemInformationUtilityWMI.DataStructs
         public int MaxClockSpeed;
         public string Name;
         public int NumberOfCores;
-        public int NumberOfEnabledCore;
         public int ThreadCount;
         public string SocketDesignation;
         public bool VirtualizationFirmwareEnabled;
         public bool VMMonitorModeExtensions;
 
-        private string _unknownText = "Unknown";
+        private const string _unknownText = "Unknown";
 
         public CPU_Data(ManagementObjectSearcher searcher) 
         {
@@ -46,7 +45,6 @@ namespace SystemInformationUtilityWMI.DataStructs
                 MaxClockSpeed = int.Parse(item["MaxClockSpeed"]?.ToString() ?? "0");
                 Name = item["Name"]?.ToString() ?? string.Empty;
                 NumberOfCores = int.Parse(item["NumberOfCores"]?.ToString() ?? "0");
-                NumberOfEnabledCore = int.Parse(item["NumberOfEnabledCore"]?.ToString() ?? "0");
                 ThreadCount = int.Parse(item["ThreadCount"]?.ToString() ?? "0");
                 SocketDesignation = item["SocketDesignation"]?.ToString() ?? _unknownText;
                 VirtualizationFirmwareEnabled = bool.Parse(item["VirtualizationFirmwareEnabled"]?.ToString() ?? "false");
