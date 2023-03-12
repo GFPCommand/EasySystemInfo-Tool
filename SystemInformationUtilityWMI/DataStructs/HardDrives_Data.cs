@@ -31,7 +31,7 @@ namespace SystemInformationUtilityWMI.DataStructs
                 VolumeSerialNumber.Add(item["VolumeSerialNumber"]?.ToString() ?? _unknownText);
             }
 
-            foreach (var item in ddSearcher.Get()) // TODO: wrong comparison with another info before it
+            foreach (var item in ddSearcher.Get())
             {
                 Manufacturer.Add(item["Manufacturer"]?.ToString() ?? "Unknown");
                 Model.Add(item["Model"]?.ToString() ?? _unknownText);

@@ -119,7 +119,7 @@
                 <!--<TextBlock Text="Property" FontSize="16" TextAlignment="Center" Grid.Row="0" Background="LightGray"/>
                 <TextBlock Text="Value" FontSize="16" TextAlignment="Center" Grid.Column="1" Grid.Row="0" Background="LightGray"/>-->
 
-                <ListBox Name="Properties" Grid.Row="1" Margin="5" Grid.ColumnSpan="2">
+                <ListBox Name="Properties" Grid.Row="1" Margin="5" Grid.ColumnSpan="2" BorderThickness="0">
                 </ListBox>
             </Grid>
         </Grid>

@@ -9,6 +9,8 @@ namespace SystemInformationUtilityWMI
         private Image _logoImage;
         private ListBox _listBoxInfo;
 
+
+
         public ViewManager(Image img, ListBox listBox)
         {
             _logoImage = img;
@@ -25,24 +27,30 @@ namespace SystemInformationUtilityWMI
                 case "CPU":
                     manufacturer = SystemData.cpu.Name;
 
-                    if (manufacturer.Contains("AMD Ryzen"))
-                        _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/AMD/AMD_Ryzen.png", UriKind.Relative));
-                    else if (manufacturer.Contains("AMD Athlon"))
-                        _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/AMD/AMD_Athlon.png", UriKind.Relative));
-                    else if (manufacturer.Contains("AMD FX"))
-                        _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/AMD/AMD_FX.png", UriKind.Relative));
-                    else if (manufacturer.Contains("AMD Threadripper"))
-                        _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/AMD/AMD_Threadripper.png", UriKind.Relative));
-                    else if (manufacturer.Contains("AMD A"))
-                        _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/AMD/AMD_A-Series.png", UriKind.Relative));
-                    else if (manufacturer.Contains("Intel Atom"))
-                        _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Intel/Intel_Atom.png", UriKind.Relative));
-                    else if (manufacturer.Contains("Intel Celeron"))
-                        _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Intel/Intel_Celeron.png", UriKind.Relative));
-                    else if (manufacturer.Contains("Intel Core"))
-                        _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Intel/Intel_Core.png", UriKind.Relative));
-                    else if (manufacturer.Contains("Intel Pentium"))
-                        _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Intel/Intel_Pentium.png", UriKind.Relative));
+                    if (manufacturer.Contains("AMD"))
+                    {
+                        if (manufacturer.Contains("Ryzen"))
+                            _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/AMD/AMD_Ryzen.png", UriKind.Relative));
+                        else if (manufacturer.Contains("Athlon"))
+                            _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/AMD/AMD_Athlon.png", UriKind.Relative));
+                        else if (manufacturer.Contains("FX"))
+                            _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/AMD/AMD_FX.png", UriKind.Relative));
+                        else if (manufacturer.Contains("Threadripper"))
+                            _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/AMD/AMD_Threadripper.png", UriKind.Relative));
+                        else if (manufacturer.Contains("A"))
+                            _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/AMD/AMD_A-Series.png", UriKind.Relative));
+                    }
+                    else if (manufacturer.Contains("Intel"))
+                    {
+                        if (manufacturer.Contains("Atom"))
+                            _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Intel/Intel_Atom.png", UriKind.Relative));
+                        else if (manufacturer.Contains("Celeron"))
+                            _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Intel/Intel_Celeron.png", UriKind.Relative));
+                        else if (manufacturer.Contains("Core"))
+                            _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Intel/Intel_Core.png", UriKind.Relative));
+                        else if (manufacturer.Contains("Pentium"))
+                            _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Intel/Intel_Pentium.png", UriKind.Relative));
+                    }
                     break;
                 case "MB":
                     manufacturer = SystemData.mb.Manufacturer;
@@ -52,7 +60,7 @@ namespace SystemInformationUtilityWMI
                     {
                         if (product.Contains("Pro") || product.Contains("PRIME"))
                             _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/ASUS/ASUS.png", UriKind.Relative));
-                        else if (product.Contains("TUF"))
+                        else if (product.Contains("TUF") || product.Contains("SABERTOOTH"))
                             _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/ASUS/ASUS_TUF.png", UriKind.Relative));
                         else if (product.Contains("ROG"))
                             _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/ASUS/ASUS_ROG.png", UriKind.Relative));
@@ -87,7 +95,7 @@ namespace SystemInformationUtilityWMI
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/RAM/GSKILL.png", UriKind.Relative));
                     else if (manufacturer.Contains("Kingston FURY")) // find out manufacturer code/name in WMI
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/RAM/Kingston_FURY.png", UriKind.Relative));
-                    else if (manufacturer.Contains("Kingston")) // find out manufacturer code/name in WMI
+                    else if (manufacturer.Contains("Kingston"))
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/RAM/Kingston.png", UriKind.Relative));
                     else if (manufacturer.Contains("Patriot"))
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/RAM/Patriot.png", UriKind.Relative));
@@ -95,6 +103,8 @@ namespace SystemInformationUtilityWMI
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/RAM/Samsung.png", UriKind.Relative));
                     else if (manufacturer.Contains("XPG"))
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/RAM/XPG.png", UriKind.Relative));
+                    else if (manufacturer.Contains("Unknown"))
+                        _logoImage.Source = null;
 
                     break;
                 case "BIOS": // TODO: make condition when none of these manufacturers are suitable
@@ -135,6 +145,8 @@ namespace SystemInformationUtilityWMI
                             _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/HardDrives/WesternDigital_logo.png", UriKind.Relative));
                         else if (product.Contains("HDWD") || product.Contains("HDWT") || product.Contains("DT"))
                             _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/HardDrives/Toshiba_logo.png", UriKind.Relative));
+                        else if (product.Contains("XPG"))
+                            _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/RAM/XPG.png", UriKind.Relative));
                     }
 
                     break;
@@ -159,8 +171,6 @@ namespace SystemInformationUtilityWMI
         {
             string str, biosData = "";
 
-
-
             switch (elementName)
             {
                 case "CPU":
@@ -169,7 +179,7 @@ namespace SystemInformationUtilityWMI
                     str = SystemData.cpu.CpuStatus == 1 ? "Working" : "Disabled";
 
                     _listBoxInfo.Items.Add($"Address width: {SystemData.cpu.AddressWidth} bit");
-                    _listBoxInfo.Items.Add($"Caption: {SystemData.cpu.Caption}");
+                    _listBoxInfo.Items.Add($"Caption: x{SystemData.cpu.Caption}");
                     _listBoxInfo.Items.Add($"CPU status: {str}");
                     _listBoxInfo.Items.Add($"Current clock speed: {SystemData.cpu.CurrentClockSpeed} MHz");
                     _listBoxInfo.Items.Add($"Core voltage: {SystemData.cpu.CurrentVoltage} V");
@@ -210,7 +220,7 @@ namespace SystemInformationUtilityWMI
                         _listBoxInfo.Items.Add($"Speed: {SystemData.ram.Speed[i]} MHz");
                         _listBoxInfo.Items.Add($"Voltage: {SystemData.ram.ConfiguredVoltage[i] / 1000} V");
                         _listBoxInfo.Items.Add($"Data width: {SystemData.ram.DataWidth[i]} bit");
-                        _listBoxInfo.Items.Add($"Form factor: {RamFormFactor(SystemData.ram.FormFactor[i])}");
+                        _listBoxInfo.Items.Add($"Form factor: {RamFormFactor((RAMFormFactors)SystemData.ram.FormFactor[i])}");
                         _listBoxInfo.Items.Add($"Part number: {SystemData.ram.PartNumber[i]}");
                         _listBoxInfo.Items.Add($"Manufacturer: {SystemData.ram.Manufacturer[i]}");
                     }
@@ -248,8 +258,8 @@ namespace SystemInformationUtilityWMI
                     _listBoxInfo.Items.Add($"Maximum refresh rate: {SystemData.gpu.MaxRefreshRate}");
                     _listBoxInfo.Items.Add($"Monochrome: {SystemData.gpu.IsMonochrome}");
                     _listBoxInfo.Items.Add($"Status: {SystemData.gpu.Status}");
-                    _listBoxInfo.Items.Add($"Video architecture: {GPU_architecture(SystemData.gpu.VideoArchitecture)}");
-                    _listBoxInfo.Items.Add($"Video memory: {GPU_Memory(SystemData.gpu.VideoMemoryType)}");
+                    _listBoxInfo.Items.Add($"Video architecture: {GPU_architecture((VideoArchitectureTypes)SystemData.gpu.VideoArchitecture)}");
+                    _listBoxInfo.Items.Add($"Video memory: {GPU_Memory((VideoMemoryTypes)SystemData.gpu.VideoMemoryType)}");
                     _listBoxInfo.Items.Add($"Video processor: {SystemData.gpu.VideoProcessor}");
                     break;
                 case "HDs":
@@ -257,16 +267,30 @@ namespace SystemInformationUtilityWMI
 
                     for (int i = 0; i < SystemData.hd.Caption.Count; i++)
                     {
-                        _listBoxInfo.Items.Add($" ----- Hard Drive: {i}  ----- ");
+                        _listBoxInfo.Items.Add($" ----- Hard Drive: {i} ----- ");
 
                         _listBoxInfo.Items.Add($"Caption: {SystemData.hd.Caption[i]}");
                         _listBoxInfo.Items.Add($"Description: {SystemData.hd.Description[i]}");
                         _listBoxInfo.Items.Add($"File system: {SystemData.hd.FileSystem[i]}");
                         _listBoxInfo.Items.Add($"Total space: {SystemData.hd.Size[i] / 1024 / 1024 / 1024} Gb");
                         _listBoxInfo.Items.Add($"Free space: {SystemData.hd.FreeSpace[i] / 1024 / 1024 / 1024} Gb");
-                        _listBoxInfo.Items.Add($"Manufacturer: {SystemData.hd.Manufacturer[i]}");
-                        _listBoxInfo.Items.Add($"Model: {SystemData.hd.Model[i]}");
-                        _listBoxInfo.Items.Add($"Name: {SystemData.hd.Name[i]}");
+                        if (i == 0)
+                        {
+                            _listBoxInfo.Items.Add($"Manufacturer: {SystemData.hd.Manufacturer[1]}");
+                            _listBoxInfo.Items.Add($"Model: {SystemData.hd.Model[1]}");
+                            _listBoxInfo.Items.Add($"Name: {SystemData.hd.Name[1]}");
+                        }
+                        else if (i == SystemData.hd.Caption.Count - 1)
+                        {
+                            _listBoxInfo.Items.Add($"Manufacturer: {SystemData.hd.Manufacturer[0]}");
+                            _listBoxInfo.Items.Add($"Model: {SystemData.hd.Model[0]}");
+                            _listBoxInfo.Items.Add($"Name: {SystemData.hd.Name[0]}");
+                        } else
+                        {
+                            _listBoxInfo.Items.Add($"Manufacturer: {SystemData.hd.Manufacturer[i + 1]}");
+                            _listBoxInfo.Items.Add($"Model: {SystemData.hd.Model[i + 1]}");
+                            _listBoxInfo.Items.Add($"Name: {SystemData.hd.Name[i + 1]}");
+                        }
                         _listBoxInfo.Items.Add($"Volume name: {SystemData.hd.VolumeName[i]}");
                         _listBoxInfo.Items.Add($"Volume serial number: {SystemData.hd.VolumeSerialNumber[i]}");
                     }
@@ -298,119 +322,19 @@ namespace SystemInformationUtilityWMI
             }
         }
 
-        private static string RamFormFactor(int formFactorInt)
+        private static string RamFormFactor(RAMFormFactors formFactor)
         {
-            switch (formFactorInt)
-            {
-                case 0:
-                    return RAMFormFactors.Unknown.ToString();
-                case 2:
-                    return RAMFormFactors.SIP.ToString();
-                case 3:
-                    return RAMFormFactors.DIP.ToString();
-                case 4:
-                    return RAMFormFactors.ZIP.ToString();
-                case 5:
-                    return RAMFormFactors.SOJ.ToString();
-                case 6:
-                    return RAMFormFactors.Proprietary.ToString();
-                case 7:
-                    return RAMFormFactors.SIMM.ToString();
-                case 8:
-                    return RAMFormFactors.DIMM.ToString();
-                case 9:
-                    return RAMFormFactors.TSOP.ToString();
-                case 10:
-                    return RAMFormFactors.PGA.ToString();
-                case 11:
-                    return RAMFormFactors.RIMM.ToString();
-                case 12:
-                    return RAMFormFactors.SODIMM.ToString();
-                case 13:
-                    return RAMFormFactors.SRIMM.ToString();
-                case 14:
-                    return RAMFormFactors.SMD.ToString();
-                case 15:
-                    return RAMFormFactors.SSMP.ToString();
-                case 16:
-                    return RAMFormFactors.QFP.ToString();
-                case 17:
-                    return RAMFormFactors.TQFP.ToString();
-                case 18:
-                    return RAMFormFactors.SOIC.ToString();
-                case 19:
-                    return RAMFormFactors.LCC.ToString();
-                case 20:
-                    return RAMFormFactors.PLCC.ToString();
-                case 21:
-                    return RAMFormFactors.BGA.ToString();
-                case 22:
-                    return RAMFormFactors.FPBGA.ToString();
-                case 23:
-                    return RAMFormFactors.LGA.ToString();
-                default:
-                    return RAMFormFactors.Other.ToString();
-            }
+            return formFactor.ToString();
         }
 
-        private static string GPU_architecture(int architectInt)
+        private static string GPU_architecture(VideoArchitectureTypes architect)
         {
-            switch (architectInt)
-            {
-                case 2:
-                    return VideoArchitectureTypes.Unknown.ToString();
-                case 3:
-                    return VideoArchitectureTypes.CGA.ToString();
-                case 4:
-                    return VideoArchitectureTypes.EGA.ToString();
-                case 5:
-                    return VideoArchitectureTypes.VGA.ToString();
-                case 6:
-                    return VideoArchitectureTypes.SVGA.ToString();
-                case 7:
-                    return VideoArchitectureTypes.MDA.ToString();
-                case 8:
-                    return VideoArchitectureTypes.HGC.ToString();
-                case 9:
-                    return VideoArchitectureTypes.MCGA.ToString();
-                case 11:
-                    return VideoArchitectureTypes.XGA.ToString();
-                case 12:
-                    return VideoArchitectureTypes.LinearFrameBuffer.ToString();
-                default:
-                    return VideoArchitectureTypes.Other.ToString();
-            }
+            return architect.ToString();
         }
 
-        private string GPU_Memory(int memoryInt)
+        private static string GPU_Memory(VideoMemoryTypes memory)
         {
-            switch (memoryInt)
-            {
-                case 2:
-                    return VideoMemoryTypes.Unknown.ToString();
-                case 3:
-                    return VideoMemoryTypes.VRAM.ToString();
-                case 4:
-                    return VideoMemoryTypes.DRAM.ToString();
-                case 5:
-                    return VideoMemoryTypes.SRAM.ToString();
-                case 6:
-                    return VideoMemoryTypes.WRAM.ToString();
-                case 7:
-                    return VideoMemoryTypes.EDO_RAM.ToString();
-                case 8:
-                    return VideoMemoryTypes.BurstSynchronousDRAM.ToString();
-                case 9:
-                    return VideoMemoryTypes.PipelinedBurstSRAM.ToString();
-                case 10:
-                    return VideoMemoryTypes.CDRAM.ToString();
-                case 12:
-                    return VideoMemoryTypes.SDRAM.ToString();
-                case 13:
-                    return VideoMemoryTypes.SGRAM.ToString();
-                default:
-                    return VideoMemoryTypes.Other.ToString();
-            }
+            return memory.ToString();
         }
     }
 }
