@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Resources\MenuIcons\settings.png" />
+    <None Remove="Resources\Vendors\HardDrives\qumo_logo.png" />
     <None Remove="Resources\Vendors\MSI\MSI.png" />
     <None Remove="Resources\Vendors\RAM\Apacer.png" />
     <None Remove="Resources\Vendors\RAM\Corsair.png" />
@@ -51,6 +52,7 @@
     <Resource Include="Resources\Vendors\BIOS\Phoenix_logo.png" />
     <Resource Include="Resources\Vendors\Gigabyte\Gigabyte.png" />
     <Resource Include="Resources\Vendors\Gigabyte\Gigabyte_AORUS.png" />
+    <Resource Include="Resources\Vendors\HardDrives\QUMO_logo.png" />
     <Resource Include="Resources\Vendors\HardDrives\Seagate_logo.png" />
     <Resource Include="Resources\Vendors\HardDrives\Toshiba_logo.png" />
     <Resource Include="Resources\Vendors\HardDrives\WesternDigital_logo.png" />

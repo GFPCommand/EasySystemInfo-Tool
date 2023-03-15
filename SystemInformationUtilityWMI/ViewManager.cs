@@ -6,10 +6,8 @@ namespace SystemInformationUtilityWMI
 {
     class ViewManager
     {
-        private Image _logoImage;
-        private ListBox _listBoxInfo;
-
-
+        private readonly Image _logoImage;
+        private readonly ListBox _listBoxInfo;
 
         public ViewManager(Image img, ListBox listBox)
         {
@@ -50,7 +48,8 @@ namespace SystemInformationUtilityWMI
                             _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Intel/Intel_Core.png", UriKind.Relative));
                         else if (manufacturer.Contains("Pentium"))
                             _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Intel/Intel_Pentium.png", UriKind.Relative));
-                    }
+                    } else 
+                        _logoImage.Source = new BitmapImage(new Uri("/Resources/MenuIcons/processor.png", UriKind.Relative));
                     break;
                 case "MB":
                     manufacturer = SystemData.mb.Manufacturer;
@@ -80,7 +79,8 @@ namespace SystemInformationUtilityWMI
                     else if (manufacturer.Contains("MSI"))
                     {
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/MSI/MSI.png", UriKind.Relative));
-                    }
+                    } else
+                        _logoImage.Source = new BitmapImage(new Uri("/Resources/MenuIcons/motherboard.png", UriKind.Relative));
                     break;
                 case "RAM":
                     manufacturer = SystemData.ram.Manufacturer[0];
@@ -104,7 +104,7 @@ namespace SystemInformationUtilityWMI
                     else if (manufacturer.Contains("XPG"))
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/RAM/XPG.png", UriKind.Relative));
                     else if (manufacturer.Contains("Unknown"))
-                        _logoImage.Source = null;
+                        _logoImage.Source = new BitmapImage(new Uri("/Resources/MenuIcons/ram.png", UriKind.Relative));
 
                     break;
                 case "BIOS": // TODO: make condition when none of these manufacturers are suitable
@@ -116,6 +116,8 @@ namespace SystemInformationUtilityWMI
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/BIOS/Award_logo.png", UriKind.Relative));
                     else if (manufacturer.Contains("Phoenix"))
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/BIOS/Phoenix_logo.png", UriKind.Relative));
+                    else
+                        _logoImage.Source = _logoImage.Source = new BitmapImage(new Uri("/Resources/MenuIcons/BIOS.png", UriKind.Relative));
                     break;
                 case "GPU":
                     manufacturer = SystemData.gpu.VideoProcessor;
@@ -131,7 +133,7 @@ namespace SystemInformationUtilityWMI
                     else if (manufacturer.Contains("NVIDIA GeForce RTX"))
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/NVIDIA/NVIDIA_RTX.png", UriKind.Relative));
                     else
-                        _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/", UriKind.Relative));
+                        _logoImage.Source = _logoImage.Source = new BitmapImage(new Uri("/Resources/MenuIcons/graphic-card.png", UriKind.Relative));
                     break;
                 case "HDs": // if hard drives more than 1 -> add images
 
@@ -147,6 +149,10 @@ namespace SystemInformationUtilityWMI
                             _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/HardDrives/Toshiba_logo.png", UriKind.Relative));
                         else if (product.Contains("XPG"))
                             _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/RAM/XPG.png", UriKind.Relative));
+                        else if (product.Contains("QUMO"))
+                            _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/HardDrives/QUMO_logo.png", UriKind.Relative));
+                        else
+                            _logoImage.Source = _logoImage.Source = new BitmapImage(new Uri("/Resources/MenuIcons/hdd.png", UriKind.Relative));
                     }
 
                     break;
@@ -161,6 +167,8 @@ namespace SystemInformationUtilityWMI
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Microsoft/Windows_10.png", UriKind.Relative));
                     else if (manufacturer.Contains("Windows 11"))
                         _logoImage.Source = new BitmapImage(new Uri("/Resources/Vendors/Microsoft/Windows_11.png", UriKind.Relative));
+                    else
+                        _logoImage.Source = _logoImage.Source = new BitmapImage(new Uri("/Resources/MenuIcons/operating-system.png", UriKind.Relative));
                     break;
                 default:
                     break;
@@ -274,25 +282,12 @@ namespace SystemInformationUtilityWMI
                         _listBoxInfo.Items.Add($"File system: {SystemData.hd.FileSystem[i]}");
                         _listBoxInfo.Items.Add($"Total space: {SystemData.hd.Size[i] / 1024 / 1024 / 1024} Gb");
                         _listBoxInfo.Items.Add($"Free space: {SystemData.hd.FreeSpace[i] / 1024 / 1024 / 1024} Gb");
-                        if (i == 0)
-                        {
-                            _listBoxInfo.Items.Add($"Manufacturer: {SystemData.hd.Manufacturer[1]}");
-                            _listBoxInfo.Items.Add($"Model: {SystemData.hd.Model[1]}");
-                            _listBoxInfo.Items.Add($"Name: {SystemData.hd.Name[1]}");
-                        }
-                        else if (i == SystemData.hd.Caption.Count - 1)
-                        {
-                            _listBoxInfo.Items.Add($"Manufacturer: {SystemData.hd.Manufacturer[0]}");
-                            _listBoxInfo.Items.Add($"Model: {SystemData.hd.Model[0]}");
-                            _listBoxInfo.Items.Add($"Name: {SystemData.hd.Name[0]}");
-                        } else
-                        {
-                            _listBoxInfo.Items.Add($"Manufacturer: {SystemData.hd.Manufacturer[i + 1]}");
-                            _listBoxInfo.Items.Add($"Model: {SystemData.hd.Model[i + 1]}");
-                            _listBoxInfo.Items.Add($"Name: {SystemData.hd.Name[i + 1]}");
-                        }
                         _listBoxInfo.Items.Add($"Volume name: {SystemData.hd.VolumeName[i]}");
                         _listBoxInfo.Items.Add($"Volume serial number: {SystemData.hd.VolumeSerialNumber[i]}");
+                        _listBoxInfo.Items.Add($"Manufacturer: {SystemData.hd.Manufacturer[i]}");
+                        _listBoxInfo.Items.Add($"Model: {SystemData.hd.Model[i]}");
+                        _listBoxInfo.Items.Add($"Name: {SystemData.hd.Name[i]}");
+                        
                     }
                     break;
                 case "OS":
@@ -322,19 +317,10 @@ namespace SystemInformationUtilityWMI
             }
         }
 
-        private static string RamFormFactor(RAMFormFactors formFactor)
-        {
-            return formFactor.ToString();
-        }
+        private static string RamFormFactor(RAMFormFactors formFactor) => formFactor.ToString();
 
-        private static string GPU_architecture(VideoArchitectureTypes architect)
-        {
-            return architect.ToString();
-        }
+        private static string GPU_architecture(VideoArchitectureTypes architect) => architect.ToString();
 
-        private static string GPU_Memory(VideoMemoryTypes memory)
-        {
-            return memory.ToString();
-        }
+        private static string GPU_Memory(VideoMemoryTypes memory) => memory.ToString();
     }
 }

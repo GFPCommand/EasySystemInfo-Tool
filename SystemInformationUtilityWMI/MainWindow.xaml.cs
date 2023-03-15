@@ -18,20 +18,6 @@ namespace SystemInformationUtilityWMI
 
             _viewManager.SetLogoImages(ActiveTab.CPU.ToString());
             _viewManager.SetPropertiesAndValues(ActiveTab.CPU.ToString());
-
-            //text1.Text = "BIOS: " + SystemData.bios.Manufacturer;
-            //text2.Text = "CPU: " + SystemData.cpu.Name;
-            //text3.Text = "GPU: " + SystemData.gpu.Caption;
-            //for (int i = 0; i < SystemData.hd.Model.Count; i++)
-            //{
-            //    text4.Text += $"HardDrive[{i}]: {SystemData.hd.Model[i]} \n";
-            //}
-            //text5.Text = "Motherboard: " + SystemData.mb.Manufacturer + " " + SystemData.mb.Product;
-            //text6.Text = "OS: " + SystemData.os.Caption;
-            //for(int i = 0; i < SystemData.ram.Manufacturer.Count; i++)
-            //{
-            //    text7.Text += $"RAM[{i}]: {SystemData.ram.Manufacturer[i]} \n";
-            //}
         }
 
         public void CPUinfoViewer(object sender, RoutedEventArgs e)
